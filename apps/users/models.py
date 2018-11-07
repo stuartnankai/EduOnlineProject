@@ -34,7 +34,7 @@ class UserProfile(AbstractUser):
 
     # meta信息，即后台栏目名
     class Meta:
-        verbose_name = "用户信息"
+        verbose_name = "User info"
         verbose_name_plural = verbose_name
 
     # 重载__str__方法，打印实例会打印username，username为继承自AbstractUser
@@ -64,7 +64,7 @@ class EmailVerifyRecord(models.Model):
     send_time = models.DateTimeField(default=datetime.now, verbose_name=u"发送时间")
 
     class Meta:
-        verbose_name = "邮箱验证码"
+        verbose_name = "Email Verify"
         verbose_name_plural = verbose_name
 
     # 重载str方法使后台不再直接显示object
@@ -85,7 +85,7 @@ class Banner(models.Model):
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
-        verbose_name = u"轮播图"
+        verbose_name = u"Banner"
         verbose_name_plural = verbose_name
 
         # 重载__str__方法使后台不再直接显示object

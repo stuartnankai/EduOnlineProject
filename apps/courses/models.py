@@ -32,6 +32,10 @@ class Course(models.Model):
         verbose_name = u"course name"
         verbose_name_plural = verbose_name
 
+    # 重载__str__方法
+    def __str__(self):
+        return self.name
+
 # chapter
 class Lesson(models.Model):
     # 因为一个课程对应很多章节。所以在章节表中将课程设置为外键。
@@ -44,6 +48,8 @@ class Lesson(models.Model):
         verbose_name = u"chapter name"
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return '《{0}》Chapter of Lesson >> {1}'.format(self.course, self.name)
 
 # video for chapter
 class Video(models.Model):
@@ -57,6 +63,9 @@ class Video(models.Model):
         verbose_name = u"video name"
         verbose_name_plural = verbose_name
 
+    # 重载__str__方法
+    def __str__(self):
+        return self.lesson
 
 # video resource
 class CourseResource(models.Model):
@@ -75,3 +84,7 @@ class CourseResource(models.Model):
     class Meta:
         verbose_name = u"source name"
         verbose_name_plural = verbose_name
+
+    # 重载__str__方法
+    def __str__(self):
+        return self.course

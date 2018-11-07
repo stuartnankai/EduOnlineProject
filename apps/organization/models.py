@@ -13,7 +13,8 @@ class CityDict(models.Model):
     class Meta:
         verbose_name = u"city"
         verbose_name_plural = verbose_name
-
+    def __str__(self):
+        return self.name
 
 # 课程机构
 class CourseOrg(models.Model):
@@ -35,6 +36,8 @@ class CourseOrg(models.Model):
     class Meta:
         verbose_name = u"course org"
         verbose_name_plural = verbose_name
+    def __str__(self):
+        return self.name
 
 
 # 讲师
@@ -54,3 +57,6 @@ class Teacher(models.Model):
     class Meta:
         verbose_name = u"teacher"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return "[{0}]'s teacher: {1}".format(self.org, self.name)
